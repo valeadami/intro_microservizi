@@ -53,7 +53,12 @@ app.get('/heroes', (req, res) => {
    console.log('Returning heroes list');
    res.send(heroes);
 });
-
+app.get('/hero/**', (req, res) => {
+    
+    const heroId = parseInt(req.params[0]);
+    console.log('Returning a single hero ' + heroId);
+    res.send(heroes[heroId]);
+ });
 app.get('/powers', (req, res) => {
    console.log('Returning powers list');
    res.send(powers);
